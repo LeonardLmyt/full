@@ -1,0 +1,30 @@
+<form class="content" bindsubmit="formSubmit" bindreset="formReset" hidden='{{postShow}}'>
+  <view class="message_main">
+    <input placeholder="标题(最多只能三十个字哦~)" placeholder-style="color:#999;" value="{{title}}" bindblur='addTitle' maxlength="30"></input>
+    <view class="message">
+      <textarea placeholder='请输入内容' auto-height placeholder-style="color:#999;" maxlength="-1" bindblur='addMessage' value="{{message}}"></textarea>
+      <view class="imglist">
+        <view class="imglist_img" wx:for="{{imgListkeys}}" wx:for-index="index">
+          <image class="delimg" src='/images/delete.png' bindtap='delImg' data-index='{{index}}' data-src='{{imgListkeys[index]}}'></image>
+          <image class="upimg" src='{{imgListkeys[index]}}' mode='aspectFill' bindtap='previewImage'></image>
+        </view>
+        <view class="imglist_img" hidden='{{showAddimg}}'>
+          <image class="img" bindtap='chooseImage' src="/images/icon_post_add.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <button class="submit" formType="submit">发表</button>
+</form>
+
+<!-- <view class='big_main' animation="{{animationData}}">
+  <view class='big_box' wx:for="{{classifyAll}}" bindtap='Location' data-fid="{{item.fid}}" data-name='{{item.name}}'>
+    <view class="title_list">
+      <image src='/images/img_user.png'></image>
+      <view class='child_module'>{{item.name}}</view>
+    </view>
+  </view>
+</view> -->
+
+<import src="../../libs/public/public.wxml" />
+<template is="layer" data="{{layer}}" />

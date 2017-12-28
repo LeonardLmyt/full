@@ -1,0 +1,167 @@
+/**content.wxss**/
+page{
+  background: #fff;
+}
+.article{
+  background: #fff;
+  height: 100%;
+}
+.article-header{
+  box-shadow: 0 2rpx 0 0 #eee;
+  background: #fafafa;
+  padding: 28rpx 28rpx 30rpx 28rpx
+}
+.article-title{
+  font-size: 44rpx;
+  color: #333;
+  line-height: 60rpx;
+}
+.article-meta{
+  display: flex;
+  padding-top: 22rpx;
+  line-height: 48rpx;
+}
+.article-author{
+  display: flex;
+}
+.article-author--avatar{
+  width: 40rpx;
+  height: 40rpx;
+  border: 4rpx solid #eee;
+  border-radius: 100%;
+}
+.article-author--name{
+  font-size: 28rpx;
+  color: #5E7290;
+  margin-left: 8rpx;
+}
+.article-views{
+  font-size: 28rpx;
+  color: #aaa;
+  margin-left: 40rpx;
+}
+.comment-item{
+  padding: 20rpx 28rpx 20rpx 28rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.comment-meta{
+  display: flex;
+  line-height: 48rpx;
+ 
+}
+.comment-author{
+  display: flex;
+}
+.comment-author--avatar{
+  width: 40rpx;
+  height: 40rpx;
+  border: 4rpx solid #eee;
+  border-radius: 100%;
+}
+.comment-author--name{
+  font-size: 28rpx;
+  color: #5E7290;
+  margin-left: 8rpx;
+}
+.post-message{
+  font-size: 36rpx;
+  color: #333;
+ margin-top: 10rpx 
+}
+.post-message image{
+  max-width:100%;
+  width: 100%;
+  height: auto;
+  margin:20rpx 0px;
+  display: block;
+}
+.comment-time{
+margin-top: 10rpx;
+  color: #666;
+  font-size: 24rpx;
+}
+.loadmore{
+  font-size: 26rpx;
+  color: #aaa;
+  padding: 28rpx 0px; 
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.repl-fixed{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  border-top: 2rpx solid #e0e0e0;
+  background-color: #f8f8f8;
+}
+.repl-header{
+  display: flex;
+  align-items: baseline;
+  padding: 30rpx 20rpx 0;
+}
+.repl-header--close{
+  color: #a2aeb3;
+  font-size: 28rpx;
+}
+.repl-header--title{
+  flex: 1;
+  text-align: center;
+  font-size: 34rpx;
+}
+.button-send{
+  border: none;
+  background: none;
+  padding: 0;
+  line-height: 1;
+  color: #72abdf;
+  font-size: 34rpx;
+}
+.button-send:after{
+  border: 0 none;
+}
+.repl-ipt{
+  padding: 20rpx 20rpx;
+  display: flex;
+}
+.message{
+  position: relative;
+  border: 2rpx solid #91a9e4;
+  width: 100%;
+  padding: 28rpx;
+  border-radius: 6rpx;
+  font-size: 32rpx;
+  color: #333;
+  line-height: 40rpx;
+}
+.place{
+  display: -webkit-box;
+  display: box;
+  padding: 20rpx;
+  overflow: hidden;
+}
+.place-text{
+  -webkit-box-flex: 1.0;
+  box-flex: 1.0;
+  border: 2rpx solid #91a9e4;
+  color: #999;
+  border-radius: 6rpx;
+  font-size: 32rpx;
+  padding: 12rpx 28rpx;
+  line-height: 40rpx;
+}
+
+.message_icon{display: -webkit-box;display: box;width: 230rpx;-webkit-box-pack: justify;box-pack: justify;margin-left: 10rpx;height: 64rpx;}
+.message_icon view{display: -webkit-box;display: box;width: 60rpx;font-size: 24rpx;color: #969FA8;-webkit-box-align: center;box-align: center;-webkit-box-orient: vertical;box-orient: vertical;text-align: center;-webkit-box-pack: justify;box-pack: justify;}
+.message_icon view image{display:-webkit-box;
+display:box;
+width: 35rpx;height:35rpx;margin: 0 auto;}
+.message_icon view text{display:-webkit-box;
+display:box;
+width: 100%;text-align:-webkit-center;
+}
+.message_icon button {width: 35rpx;height:35rpx;line-height:0;margin: 0;padding: 0;border-radius:0;background-color: transparent;border: none;}
+.message_icon button::after{position:relative;border:0;}
+.message_icon button image{width: 35rpx;height:35rpx;}

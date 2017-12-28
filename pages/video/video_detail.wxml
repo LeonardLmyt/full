@@ -1,0 +1,82 @@
+<view class="section">
+  <video id="myVideo" src="{{url}}" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+</view>
+<view class='send_sontent'>{{name}}</view>
+<view class='text_contens'>
+  <view class='text_left'>{{view}}人学习</view>
+  <view class='text_right'>{{createtime}}</view>
+</view>
+<view class='all_content'>
+  <view>{{intro}}</view>
+</view>
+<view class='risks'>{{risk}}</view>
+<view class='all_comments'>{{all_comments}}</view>
+<view class="content">
+  <view class="con_sub" wx:for="{{comment}}" wx:for-index="index">
+    <view class="con_left">
+      <navigator url="/pages/my/otherspost">
+        <image src='{{item.avatarurl}}'></image>
+      </navigator>
+    </view>
+    <view class="con_right">
+      <view class="con_name">
+        <view class="name">{{item.nickname}}</view>
+        <view class="time">{{item.time}}</view>
+      </view>
+      <view class="publish">
+        {{item.contents}}
+      </view>
+      <!-- <view class="comment">
+                <view class="comment_sub" wx:for="{{list[index].comment_list}}" wx:for-index="index_sub">
+                    <text>{{list[index].comment_list[index_sub].post}}</text>回复
+                    <text>{{list[index].comment_list[index_sub].reply}}：</text>{{list[index].comment_list[index_sub].reply_content}}
+                </view>
+            </view>
+            <navigator url="/pages/video/comment_detail" class="reply" wx:if="{{(0|list[index].comment_num) > 2}}">更多回复（{{list[index].comment_num}}）</navigator> -->
+    </view>
+  </view>
+</view>
+<view style="width:100%;height:120rpx;"></view>
+<view class="repl-fixed" hidden='{{bindScrollShow}}'>
+  <block wx:if="{{isReply}}">
+    <form bindsubmit="bindForumPost" name="forumPost" report-submit>
+      <view class="repl-header">
+        <view class="repl-header--close" bindtap="switchInput">关闭</view>
+        <view class="repl-header--title">发表回复</view>
+        <view class="repl-header--button">
+          <button form-type="submit" class="button-send">发送</button>
+        </view>
+      </view>
+      <view class="repl-ipt">
+        <textarea fixed="{{true}}" cursor-spacing="40" show-confirm-bar="{{false}}" auto-height placeholder="我也来说两句" name="message" class="message" placeholder-style="color:#999" focus="{{replyFocus}}" bindblur='addMessage' value='{{message}}'></textarea>
+      </view>
+    </form>
+  </block>
+  <block wx:else>
+    <view class="place">
+      <view class="place-text" bindtap="switchInput">我也来说两句</view>
+      <view class="message_icon">
+        <view>
+          <view>
+            <image src='/images/icon_comment_news.png' class="operation_img"></image>
+          </view>
+          <text>{{commentnum}}</text>
+        </view>
+        <view>
+          <view bindtap='addCollection'>
+            <image src='{{collectionSrc[collectionSrc.show]}}' class="operation_img"></image>
+          </view>
+          <text>{{collectionnum < 5 ? '收藏' : collectionnum}}</text>
+        </view>
+        <view>
+          <view>
+            <button open-type="share" bindtap="onShareAppMessage">
+              <image src='/images/icon_comment_share.png' class="operation_img"></image>
+            </button>
+          </view>
+          <text>{{forwardnum < 5 ? '转发' : forwardnum}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

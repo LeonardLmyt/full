@@ -1,0 +1,11 @@
+
+<import src="../common/incList.wxml" />
+<view class="content">
+  <scroll-view class="scrollView" scroll-y="{{true}}" bindscrolltolower="loadMoreData" style="height: {{swiperHeight}}px;"  bindscroll="scroll" bindtouchstart='touchstart' bindtouchend='touchend'>
+    <block wx:for="{{hotDataList}}" wx:key="">
+      <template is="incList" data="{{item}}" />
+    </block>
+  </scroll-view>
+</view>
+<import src="../../libs/public/public.wxml" />
+<template is="footer" />

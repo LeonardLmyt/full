@@ -1,0 +1,20 @@
+ <scroll-view scroll-y style="height: 600px;"    bindscrolltolower="loadMore" bindscroll="scroll" >
+    <view wx:for="{{video_List}}" wx:for-index="index" class="content_sub">
+    <navigator url="/pages/video/video_detail?id={{item.id}}&url={{item.url}}&view={{item.view}}&name={{item.name}}&intro={{item.intro}}&createtime={{item.createtime}}">
+        <view class='section'>
+            <image src='{{item.img}}' mode='aspectFill'></image>
+            <view  class='file'></view>
+            <view class="title_main">
+               <view>{{item.name}}</view>
+            </view>
+        </view>
+        </navigator>
+        <view class='text_contens'>
+            <text>{{item.view}}人观看</text>
+            <view></view>
+            <text>90秒</text> 
+        </view>
+    </view>
+</scroll-view>
+<import src="../../libs/public/public.wxml" />
+<template is="footer" />

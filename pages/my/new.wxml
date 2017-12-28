@@ -1,0 +1,19 @@
+<view class="content">
+  <view class="content_sub" wx:for="{{list}}" wx:for-item="item">
+    <view class="content_sub_l">
+      <image src='{{item.img}}'></image>
+    </view>
+    <view class="content_sub_r">
+    <view class="content_sub_c">
+      <view class="sc_t">{{item.name}}
+
+      </view>
+      <view class="sc_c">{{item.time}}</view>
+      <view class="sc_b">{{item.content}}</view>
+    </view>
+    <view class="content_sub_b">
+      <image src='{{item.contentimg}}'></image>
+    </view>
+    </view>
+  </view>
+</view>

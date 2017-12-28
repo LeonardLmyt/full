@@ -1,0 +1,25 @@
+<view class="content">
+  <view class='midden_lisy' wx:for="{{myfavorite}}" wx:for-index="index" data-id='{{item.id}}'data-index='{{index}}'>
+    <navigator class="midden_lisy_sub" url='/pages/index/index_detail?tid={{item.id}}'>
+      <view class='Written_content'>{{item.title}}</view>
+      <view class='Written_img' wx:if="{{item.image[0].pic}}">
+        <image src="{{item.image[0].pic}}" mode="aspectFill"></image>
+      </view>
+      <view wx:else></view>
+      <view class="li-infox">
+        <view class='all_count'>
+          <view class='browse'>
+            <view class='icon_name'>
+              <view class="icon-viewsx">
+                <view class="li-info">
+                  <view class="icon-user">{{item.author}}</view>
+                  <view class="icon-views">{{item.views}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>

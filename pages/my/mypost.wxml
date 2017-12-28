@@ -1,0 +1,30 @@
+<view class="content" wx:if="{{!record.length}}">
+  <view class='my_last'>
+    <image src='/images/icon_per_No content.png '></image>
+  </view>
+  <view class='nocontent'>你没有发表过任何东西噢！</view>
+</view>
+<view class="content" wx:else>
+  <view class="content_sub" wx:for="{{record}}" bindtap="switchTab" wx:key="" data-id="{{index}}" data-fid="{{item.fid}}">
+    <view class="content_sub_left">
+      <view class="time">
+        <!-- <view>{{record[index].n}}</view> -->
+        <view>{{record[index].y}}.12</view>
+      </view>
+    </view>
+    <view class="content_sub_right">
+      <navigator class="content_title" url="/pages/index/index_detail?tid={{item.tid}}">
+        {{record[index].subject}}
+      </navigator>
+      <view class="content_sub_right_img">
+        <image src='{{record[index].image[0].pic}}' mode="aspectFill"></image>
+      </view>
+      <view class="content_sub_right_buttom">
+        <text>{{record[index].name}}</text>
+        <view></view>
+        <text>{{record[index].views}}人浏览</text>
+      </view>
+      <view class="content_sub_icon"></view>
+    </view>
+  </view>
+</view>

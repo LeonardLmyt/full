@@ -1,0 +1,71 @@
+<scroll-view class="article" wx:if="{{isReady}}" bindscroll="scroll" scroll-y style="height: {{height}}px;" bindscrolltolower="ReachBottom">
+    <view class="article-header">
+        <view class="article-title">{{threadList.subject}}</view>
+        <view class="article-meta">
+            <navigator class="article-author" url="/pages/my/mypost">
+                <image src="{{threadList.avatar ? threadList.avatar : 'http://errorpage.b0.upaiyun.com/touxiang8264-404'}}" class="article-author--avatar" mode="aspectFill"></image>
+                <view class="article-author--name">{{threadList.author}}</view>
+            </navigator>
+            <view class="article-views">{{threadList.views}}人浏览</view>
+        </view>
+    </view>
+    <view class="article-comment">
+        <view class="comment-list">
+            <block wx:for="{{postList}}" wx:key="">
+                <view class="comment-item">
+                    <navigator class="comment-meta" wx:if="{{item.first != 1}}" url="/pages/my/mypost">
+                        <view class="comment-author">
+                            <image src="{{item.avatar}}" class="comment-author--avatar" mode="aspectFill"></image>
+                            <view class="comment-author--name">{{item.author}}</view>
+                        </view>
+                    </navigator>
+                    <view class="post-message">
+                        <rich-text nodes="{{item.message}}"></rich-text>
+                    </view>
+                    <view class="comment-time">
+                        <rich-text nodes="{{item.dateline}}"></rich-text>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <view class="loadmore" hidden="{{!isLoading}}">加载中...</view>
+        <view class="loadmore" hidden="{{hasMore}}">已到底部，欢迎评论，转发，收藏</view>
+    </view>
+    <view class="repl-fixed" hidden='{{bindScrollShow}}'>
+        <block wx:if="{{isReply}}">
+            <form bindsubmit="bindForumPost" name="forumPost" report-submit>
+                <view class="repl-header">
+                    <view class="repl-header--close" bindtap="switchInput">关闭</view>
+                    <view class="repl-header--title">发表回复</view>
+                    <view class="repl-header--button">
+                        <button form-type="submit" class="button-send">发送</button>
+                    </view>
+                </view>
+                <view class="repl-ipt">
+                    <textarea fixed="{{true}}" cursor-spacing="40" show-confirm-bar="{{false}}" auto-height placeholder="我也来说两句" name="message" class="message" placeholder-style="color:#999" focus="{{replyFocus}}" bindblur='addMessage' value='{{message}}'></textarea>
+                </view>
+            </form>
+        </block>
+        <block wx:else>
+            <view class="place">
+                <view class="place-text" bindtap="switchInput">我也来说两句</view>
+                <view class="message_icon">
+                    <view>
+                        <image src='/images/icon_comment_news.png'></image>
+                        <text>{{threadList.replies}}</text>
+                    </view>
+                    <view bindtap='addCollection'>
+                        <image src='{{collectionSrc[collectionSrc.show]}}'></image>
+                        <text>收藏</text>
+                    </view>
+                    <view>
+                        <button open-type="share" bindtap="onShareAppMessage">
+                            <image src='/images/icon_comment_share.png'></image>
+                        </button>
+                        <text>{{forwardnum < 5 ? '转发' : forwardnum}}</text>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+</scroll-view>
